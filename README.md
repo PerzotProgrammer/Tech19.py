@@ -1,2 +1,2 @@
 # Tech19
-Szkolne repo do programów
+Szkolne repozytorium do programów
