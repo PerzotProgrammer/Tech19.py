@@ -23,4 +23,15 @@ print(a)
 #TODO bo nie rozumiem zamysłu
 
 #zad6
-#TODO
+
+from time import sleep
+print("ZADANIE 6")
+x = 1
+y = 1
+while True:
+    print(x)
+    sleep(1)
+    x+=y
+    print(y)
+    sleep(1)
+    y+=x
