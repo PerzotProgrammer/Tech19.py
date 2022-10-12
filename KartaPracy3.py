@@ -16,7 +16,7 @@ for i in range (1,a+1) :
 #zad4
 print("ZADANIE 4")
 a = 0
-for i in range (10,100): a += i;
+for i in range (10,100): a += i
 print(a)
 
 #zad5
@@ -30,8 +30,8 @@ x = 1
 y = 1
 while True:
     print(x)
-    sleep(1)
+    sleep(0.5)
     x+=y
     print(y)
-    sleep(1)
+    sleep(0.5)
     y+=x
