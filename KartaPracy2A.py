@@ -51,5 +51,4 @@ if a < b + c and b < a + c and c < a + b :
     if a**2 + b**2 == c**2 or b**2 + c**2 == a**2 or c**2 + a**2 == b**2 : print("Będzie to trójkąt prostokątny")
     elif a**2 + b**2 < c**2 or b**2 + c**2 < a**2 or c**2 + a**2 < b**2 : print("Będzie to trójkąt rozwartokątny")
     elif a**2 + b**2 > c**2 or b**2 + c**2 > a**2 or c**2 + a**2 > b**2 : print("Będzie to trójkąt ostrokątny")
-
 else : print("Trójkąt nie powstanie")
