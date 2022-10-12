@@ -10,7 +10,7 @@ for i in range(105,1000,+15) : print(i)
 #zad3
 print("ZADANIE 3")
 a = int(input("Liczba1:"))
-for i in range (1,a+1) : 
+for i in range (0,a) : 
     if (a % i == 0) : print(i)
 
 #zad4
@@ -20,10 +20,15 @@ for i in range (10,100): a += i
 print(a)
 
 #zad5
-#TODO bo nie rozumiem zamysłu
+print("ZADANIE 5")
+a = int(input("Podaj ilość liczb: "))
+b = a*(a+1)//2
+for i in range (0,a-1) :
+    x = int(input())
+    b -= x
+print("Nie napisałeś:",b)
 
 #zad6
-
 from time import sleep
 print("ZADANIE 6")
 x = 1
