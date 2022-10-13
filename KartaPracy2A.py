@@ -18,7 +18,11 @@ print("ZADANIE 3")
 a = int(input("Liczba1: "))
 b = int(input("Liczba2: "))
 c = int(input("Liczba3: "))
-if a == b or a == c or b == c : print("TAK, przynajmniej dwie są równe")
+if a == b or a == c or b == c : 
+    print("TAK, przynajmniej dwie są równe")
+    if a == b : print("są to: 'Liczba1' i 'Liczba2'")
+    if a == c : print("są to: 'Liczba1' i 'Liczba3'")
+    if b == c : print("są to: 'Liczba2' i 'Liczba3'")
 else : print("NIE, nie ma równych")
 
 #zad4
