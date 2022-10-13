@@ -21,9 +21,9 @@ c = int(input("Liczba3: "))
 if a == b or a == c or b == c : 
     print("TAK, przynajmniej dwie są równe")
     if a == b and a == c and b == c : print("Wszystkie liczby są równe")
-    if a == b : print("są to: 'Liczba1' i 'Liczba2'")
-    if a == c : print("są to: 'Liczba1' i 'Liczba3'")
-    if b == c : print("są to: 'Liczba2' i 'Liczba3'")
+    elif a == b : print("są to: 'Liczba1' i 'Liczba2'")
+    elif a == c : print("są to: 'Liczba1' i 'Liczba3'")
+    elif b == c : print("są to: 'Liczba2' i 'Liczba3'")
 else : print("NIE, nie ma równych")
 
 #zad4
