@@ -49,7 +49,6 @@ def po(x,y):
     else : return x * po(x,y-1)
 
 #zad7
-from math import floor
 
 def binar(x,numb = []):
     if x == 1 : 
