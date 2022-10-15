@@ -1,7 +1,6 @@
 #TODO zad1
 
 #zad2
-from math import floor
 
 
 def dodaj(x,y):
@@ -26,14 +25,38 @@ def po(x,y):
     else : return x * po(x,y-1)
 
 #zad7
-def binar(x):
-    if x == 1 : return 1
+from math import floor
+
+def binar(x,numb = []):
+    if x == 1 : 
+        numb.append(1)
+        return numb[::-1]
     else : 
-        num = x
-        i = x % 2
+        zeroJeden = x % 2
+        numb.append(zeroJeden)
         x = floor(x/2)
-        print(num,i)
         return binar(x)
 
 
-#TODO wyniki
+#ROZWIĄZANIA
+print("ZADANIE 2")
+a = int(input("Liczba1: "))
+b = int(input("Liczba2: "))
+print("Wynik:",dodaj(a,b))
+
+print("ZADANIE 3")
+a = int(input("Silnia z: "))
+print("Wynik:",silnia(a))
+
+print("ZADANIE 4")
+a = int(input("Który fib?: "))
+print(a,"liczba w ciągu to",fib(a))
+
+print("ZADANIE 6")
+a = int(input("Podstawa: "))
+a = int(input("Wykładnik: "))
+print("Wynik to:",po(a,b))
+
+print("ZADANIE 7")
+a = int(input("Podaj liczbę na binarke: "))
+print(f"Liczba {a} w binarnym to:",binar(a))
