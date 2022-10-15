@@ -59,4 +59,4 @@ print("Wynik to:",po(a,b))
 
 print("ZADANIE 7")
 a = int(input("Podaj liczbę na binarke: "))
-print(f"Liczba {a} w binarnym to:",binar(a))
+print(f"Liczba {a} w binarnym to: {binar(a)}")
