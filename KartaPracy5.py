@@ -1,13 +1,13 @@
 #zad1
 def sumaPierwszych():
     wynik = 0
-    for x in range(10, 100):
+    for liczba in range(10, 100):
         n = 0
-        for i in range(2, x):
-            if x % i == 0:
+        for dzielnik in range(2, liczba):
+            if liczba % dzielnik == 0:
                 n += 1
         if n == 0:
-            wynik += x
+            wynik += liczba
     return wynik
 
 #zad2
