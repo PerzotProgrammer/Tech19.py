@@ -16,7 +16,6 @@ def SumaCyfr(x):
     while x > 0:
         suma += x % 10
         x //=10
-    
     return suma
 
 #TODO zad3
