@@ -61,7 +61,16 @@ for i in range(11,(ileLiczb*2)+11,+2):
     suma += i
 print(f"Suma to: {suma}")
 
-#TODO zad8
+#zad8
+print("ZADANIE 8")
+kapPocz = int(input("Podaj początkową wartość inwestycji: "))
+lataInw = int(input("Podaj lata inwestycji: "))
+kapKon = 0
+suma = kapPocz
+for i in range(0,lataInw * 12):
+    kapKon = suma * 0.06 * (1/12)
+    suma += kapKon
+print(f"Końcowy kapitał wynosi: {round(suma,2)} zł")
 
 #zad9
 print("ZADANIE 9")
