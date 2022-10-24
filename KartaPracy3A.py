@@ -40,8 +40,26 @@ for i in range(x+1, 0, -1):
         print(gw, end="")
     print("")
 
-# #zad2
-# print("ZADANIE 2")
-# for i in range (1, x):
-#     print(gw + kr + gw + "*" + pi, end="")
-#     gw = gw + "**"
+#zad2
+print("ZADANIE 2")
+for i in range (1, x):
+    print(gw + kr + gw + "*" + pi, end="")
+    gw = gw + "**"
+print()
+#zad3
+print("ZADANIE 3")
+pi1 = "|"
+gw1 = "*"
+for i in range(1,x):
+    print(gw1+pi1+gw1+kr, end="")
+    pi1 += "||"
+    kr += "--"
+print()
+print()
+
+#pre - tab. mnożenia
+print("\t\t\tPRE - TABLICZKA MNOŻENIA")
+for i in range (1, 11):
+    for j in range(1,11):
+        print(i*j,end="\t")
+    print()
