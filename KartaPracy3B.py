@@ -88,8 +88,8 @@ print(f"Suma to: {suma}")
 from cmath import sqrt
 print("ZADANIE 10")
 for i in range(1,1000):
-    if i - (i//10)*10 == sqrt(i):
+    if i % 10 == sqrt(i):
         print(i)
-    elif i - (i//100)*100 == sqrt(i):
+    elif i % 100 == sqrt(i):
         print(i)
     
