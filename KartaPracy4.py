@@ -81,7 +81,7 @@ fib2(a)
 
 print("ZADANIE 6")
 a = int(input("Podstawa: "))
-a = int(input("Wykładnik: "))
+b = int(input("Wykładnik: "))
 print("Wynik to:",po(a,b))
 
 print("ZADANIE 7")
