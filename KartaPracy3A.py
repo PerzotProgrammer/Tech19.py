@@ -23,7 +23,7 @@ for i in range(x, 0, -1):
     print("")
 
 #zad2 pre3
-for i in range(0, x):
+for i in range(x+1, 0, -1):
     for j in range(0, i):
         print(" ", end="")
         
@@ -32,7 +32,7 @@ for i in range(0, x):
     print("")
 
 #zad2 pre4
-for i in range(x+1, 0, -1):
+for i in range(0, x):
     for j in range(0, i):
         print(" ", end="")
         
@@ -62,4 +62,14 @@ print("\t\t\tPRE - TABLICZKA MNOŻENIA")
 for i in range (1, 11):
     for j in range(1,11):
         print(i*j,end="\t")
+    print()
+
+#zad4
+print("ZADANIE 4")
+for i in range(1,x):
+    for j in range(1,x):
+        if j == i or j + i == x:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
     print()
