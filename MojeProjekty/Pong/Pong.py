@@ -1,6 +1,7 @@
 import pygame
 from time import sleep
 from sys import exit
+import os
 
 pygame.init()
 #Zmień jeżeli inna roździelczość
@@ -33,7 +34,7 @@ pSpeed = GameSpeed + 10
 p1 = 0
 p2 = 0
 
-pInit = pygame.font.Font("res/font.ttf",100)
+pInit = pygame.font.Font(os.path.dirname(__file__) + "/res/font.ttf",100)
 
 screen = pygame.display.set_mode((window_x,window_y),pygame.FULLSCREEN)
 pygame.display.set_caption("Runner")
@@ -61,8 +62,8 @@ ball.fill((color))
 line = pygame.Surface((5,window_y))
 line.fill((color))
 
-PongBounce = pygame.mixer.Sound("res/PongBounce.mp3")
-PongScore = pygame.mixer.Sound("res/PongScore.mp3")
+PongBounce = pygame.mixer.Sound(os.path.dirname(__file__) + "/res/PongBounce.mp3")
+PongScore = pygame.mixer.Sound(os.path.dirname(__file__) + "/res/PongScore.mp3")
 
 
 
