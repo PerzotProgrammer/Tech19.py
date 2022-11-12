@@ -24,7 +24,7 @@ for faj in range(1000,10000):
     jed = int(faj % 10)
     dz = int((faj % 100)/10)
     set = int((faj % 1000)/100)
-    if jed  == dz * 2 and dz  == set * 2:
+    if jed  == dz * 2 and dz  == set * 2 and jed != 0:
         print(faj)
 
 print("ZADANIE 3")
