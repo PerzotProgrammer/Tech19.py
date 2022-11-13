@@ -35,6 +35,7 @@ wall_dn_rect = wall_surf.get_rect(topleft = (window_x, 600))
 
 screen = pygame.display.set_mode((window_x,window_y))
 pygame.display.set_caption("Flapper")
+pygame.display.set_icon(player_surf)
 clock = pygame.time.Clock()
 
 
@@ -47,12 +48,8 @@ while True:
 #STEROWANIE
     keys = pygame.key.get_pressed()
     
-    if player_rect.colliderect(top_rect):
-        player_grav += 0.5
-    elif keys[pygame.K_w] or keys[pygame.K_SPACE]:
+    if keys[pygame.K_w] or keys[pygame.K_SPACE]:
             player_grav = -10
-    elif player_rect.colliderect(floor_rect):
-        player_grav = 0
     else:
         player_grav += 0.5
 
