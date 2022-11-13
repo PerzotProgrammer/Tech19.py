@@ -27,10 +27,10 @@ player_rect = player_surf.get_rect(topleft = (player_x, player_y))
 floortop_surf = pygame.image.load(path.dirname(__file__) + "/res/Floortop.png")
 top_rect = floortop_surf.get_rect(topleft = (0, 0))
 floor_rect = floortop_surf.get_rect(topleft = (0, window_y - 64))
-rand = 1
+rand = 0
 
 wall_surf = pygame.image.load(path.dirname(__file__) + "/res/Wall.png")
-wall_up_rect = wall_surf.get_rect(topleft = (window_x, -650))
+wall_up_rect = wall_surf.get_rect(bottomleft = (window_x, 400))
 wall_dn_rect = wall_surf.get_rect(topleft = (window_x, 600))
 
 screen = pygame.display.set_mode((window_x,window_y))
@@ -60,12 +60,17 @@ while True:
     wall_up_rect.x -= 5
     wall_dn_rect.x -= 5
 
-# TODO PRAWIDŁOWE PRZESUWANIE RUR
+#InProgress  PRAWIDŁOWE PRZESUWANIE RUR
     if wall_up_rect.x <= 0 - wall_up_rect.width:
-        if rand < 0 and wall_dn_rect.y < window_y - floor_rect.height:
+        if rand <= 0 and wall_dn_rect.y >= window_y - floor_rect.y:
             rand = random.randint(1,300)
-        else :
+        elif rand > 0 and wall_up_rect.y <= 0 + top_rect.y:
             rand = random.randint(-300,1)
+        else:
+            rand = 0
+            wall_up_rect.y = -650
+            wall_dn_rect.y = 600
+
         wall_up_rect.x = window_x
         wall_up_rect.y += rand
         wall_dn_rect.x = window_x
