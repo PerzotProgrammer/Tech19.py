@@ -79,7 +79,7 @@ while True:
     if vent_rect.x <= -250:
         vent_rect.x = window_x + 200
 
-    if floor_rect.x <= -555:
+    if floor_rect.x <= -575:
         floor_rect.x = 0
         top_rect.x = 0
 
@@ -139,4 +139,4 @@ while True:
     # print("wallUP",wall_up_rect)
     # print("wallDN",wall_dn_rect)
     # print(rand)
-    print(top_rect.x)
+    # print(top_rect.x)
