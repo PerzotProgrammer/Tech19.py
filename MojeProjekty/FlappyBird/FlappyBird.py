@@ -30,8 +30,14 @@ floor_rect = floortop_surf.get_rect(topleft = (0, window_y - 64))
 rand = 0
 
 wall_surf = pygame.image.load(path.dirname(__file__) + "/res/Wall.png")
-wall_up_rect = wall_surf.get_rect(bottomleft = (window_x, 400))
+wall_up_rect = wall_surf.get_rect(topleft = (window_x, -650))
 wall_dn_rect = wall_surf.get_rect(topleft = (window_x, 600))
+# ODLEGŁOŚĆ MIĘDZY RURAMI 50px
+
+deadFlap_surf = pygame.image.load(path.dirname(__file__) + "/res/DeadFlapper.png")
+deadFlap_rect = deadFlap_surf.get_rect(topleft = (window_x + 500, 600))
+vent_surf = pygame.image.load(path.dirname(__file__) + "/res/Vent.png")
+vent_rect = vent_surf.get_rect(topleft = (window_x + 200, 200))
 
 screen = pygame.display.set_mode((window_x,window_y))
 pygame.display.set_caption("Flapper")
@@ -60,14 +66,31 @@ while True:
     wall_up_rect.x -= 5
     wall_dn_rect.x -= 5
 
-#InProgress  PRAWIDŁOWE PRZESUWANIE RUR
+#RUCH TŁA
+    deadFlap_rect.x -= 2.5
+    vent_rect.x -= 2.5
+    floor_rect.x -= 2.5
+    top_rect.x -= 2.5
+
+
+    if deadFlap_rect.x <= -500:
+        deadFlap_rect.x = window_x + 500
+
+    if vent_rect.x <= -250:
+        vent_rect.x = window_x + 200
+
+    if floor_rect.x <= -555:
+        floor_rect.x = 0
+        top_rect.x = 0
+
+#Working?  PRAWIDŁOWE PRZESUWANIE RUR
     if wall_up_rect.x <= 0 - wall_up_rect.width:
-        if rand <= 0 and wall_dn_rect.y >= window_y - floor_rect.y:
-            rand = random.randint(1,300)
-        elif rand > 0 and wall_up_rect.y <= 0 + top_rect.y:
-            rand = random.randint(-300,1)
+        if rand <= 0 and wall_dn_rect.y > floor_rect.height - 100:
+            rand = random.randint(1, 300)
+        elif rand > 0 and wall_dn_rect.y > top_rect.height - 100:
+            rand = random.randint(-300, 1)
         else:
-            rand = 0
+            rand = random.randint(-300, 300)
             wall_up_rect.y = -650
             wall_dn_rect.y = 600
 
@@ -87,16 +110,22 @@ while True:
         player_grav = 0
         player_rect.y = player_y
         score_num = 0
+        # InProgress do dalszych testów
+        # wall_up_rect.y = -650
+        # wall_dn_rect.y = 600
         score = font.render(str(score_num),False, font_color)
 
     screen.blit(background, (0,0))    
-    
+    screen.blit(deadFlap_surf, deadFlap_rect)
+    screen.blit(vent_surf, vent_rect)
+
     screen.blit(player_surf, player_rect)
     
     screen.blit(wall_surf, wall_up_rect)
     screen.blit(wall_surf, wall_dn_rect)
     screen.blit(floortop_surf, floor_rect)
     screen.blit(floortop_surf, top_rect)
+
 
     screen.blit(score,(window_x/2, 100))
 
@@ -107,3 +136,7 @@ while True:
     # print("Player",player_rect)
     # print("Floor",floor_rect)
     # print("Top",top_rect)
+    # print("wallUP",wall_up_rect)
+    # print("wallDN",wall_dn_rect)
+    # print(rand)
+    print(top_rect.x)
