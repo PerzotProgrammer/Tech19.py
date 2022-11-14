@@ -16,9 +16,9 @@ player_grav = 0
 
 background = pygame.image.load(path.dirname(__file__) + "/res/Background.png")
 
-font = pygame.font.Font(path.dirname(__file__) + "/res/font.ttf",100)
-font_color = "#00ff00"
-score = font.render("0",False,font_color)
+font = pygame.font.Font(path.dirname(__file__) + "/res/font.ttf",50)
+font_color = "#222222"
+score = font.render("Score:" + "0",False,font_color)
 score_num = 0
 
 player_surf = pygame.image.load(path.dirname(__file__) + "/res/Flapper.png")
@@ -101,7 +101,7 @@ while True:
 #PUNKTACJA
     if wall_up_rect.x == player_rect.x:
         score_num += 1
-        score = font.render(str(score_num),False, font_color)
+        score = font.render("Score:" + str(score_num),False, font_color)
 
 #WARUNKI PRZEGRANEJ
     if player_rect.colliderect(floor_rect) or player_rect.colliderect(top_rect) or player_rect.colliderect(wall_up_rect) or player_rect.colliderect(wall_dn_rect):
@@ -113,11 +113,12 @@ while True:
         # InProgress do dalszych testów
         # wall_up_rect.y = -650
         # wall_dn_rect.y = 600
-        score = font.render(str(score_num),False, font_color)
+        score = font.render("Score:" + str(score_num),False, font_color)
 
     screen.blit(background, (0,0))    
     screen.blit(deadFlap_surf, deadFlap_rect)
     screen.blit(vent_surf, vent_rect)
+    screen.blit(score,(0, 875))
 
     screen.blit(player_surf, player_rect)
     
@@ -127,7 +128,6 @@ while True:
     screen.blit(floortop_surf, top_rect)
 
 
-    screen.blit(score,(window_x/2, 100))
 
     pygame.display.update()
     clock.tick(60)
