@@ -9,10 +9,12 @@ pygame.init()
 window_x = 800
 window_y = 1000
 
-player_x = window_x/4
-player_y = window_y/4
+player_x = 200
+player_y = 250
 
 player_grav = 0
+wall_speed = 5
+wall_up_gap = 100
 
 background = pygame.image.load(path.dirname(__file__) + "/res/Background.png")
 
@@ -30,9 +32,9 @@ floor_rect = floortop_surf.get_rect(topleft = (0, window_y - 64))
 rand = 0
 
 wall_surf = pygame.image.load(path.dirname(__file__) + "/res/Wall.png")
-wall_up_rect = wall_surf.get_rect(topleft = (window_x, -650))
+wall_up_rect = wall_surf.get_rect(topleft = (window_x, -600 - wall_up_gap))
 wall_dn_rect = wall_surf.get_rect(topleft = (window_x, 600))
-# ODLEGŁOŚĆ MIĘDZY RURAMI 50px
+# ODLEGŁOŚĆ MIĘDZY RURAMI 75px
 
 deadFlap_surf = pygame.image.load(path.dirname(__file__) + "/res/DeadFlapper.png")
 deadFlap_rect = deadFlap_surf.get_rect(topleft = (window_x + 500, 600))
@@ -63,10 +65,11 @@ while True:
 
 
 #RUCH RUR
-    wall_up_rect.x -= 5
-    wall_dn_rect.x -= 5
+    wall_up_rect.x -= wall_speed
+    wall_dn_rect.x -= wall_speed
 
 #RUCH TŁA
+#TODO RUCH WODY
     deadFlap_rect.x -= 2.5
     vent_rect.x -= 2.5
     floor_rect.x -= 2.5
@@ -83,25 +86,30 @@ while True:
         floor_rect.x = 0
         top_rect.x = 0
 
-#Working?  PRAWIDŁOWE PRZESUWANIE RUR
+#PRAWIDŁOWE PRZESUWANIE RUR
     if wall_up_rect.x <= 0 - wall_up_rect.width:
-        if rand <= 0 and wall_dn_rect.y > floor_rect.height - 100:
+# W DÓŁ
+        if rand <= 0 and wall_dn_rect.y < window_y - floor_rect.height - 300 - wall_up_gap:
             rand = random.randint(1, 300)
-        elif rand > 0 and wall_dn_rect.y > top_rect.height - 100:
+# W GÓRĘ
+        elif rand > 0 and wall_dn_rect.y > top_rect.height + 300 + wall_up_gap: 
             rand = random.randint(-300, 1)
         else:
             rand = random.randint(-300, 300)
-            wall_up_rect.y = -650
+            wall_up_rect.y = -600 - wall_up_gap
             wall_dn_rect.y = 600
 
         wall_up_rect.x = window_x
         wall_up_rect.y += rand
         wall_dn_rect.x = window_x
         wall_dn_rect.y += rand
+
 #PUNKTACJA
-    if wall_up_rect.x == player_rect.x:
+    if wall_dn_rect.x == window_x:
         score_num += 1
         score = font.render("Score:" + str(score_num),False, font_color)
+        if score_num % 10 == 0:
+            wall_speed += 1
 
 #WARUNKI PRZEGRANEJ
     if player_rect.colliderect(floor_rect) or player_rect.colliderect(top_rect) or player_rect.colliderect(wall_up_rect) or player_rect.colliderect(wall_dn_rect):
@@ -110,9 +118,9 @@ while True:
         player_grav = 0
         player_rect.y = player_y
         score_num = 0
-        # InProgress do dalszych testów
-        # wall_up_rect.y = -650
-        # wall_dn_rect.y = 600
+        wall_speed = 5
+        wall_up_rect.y = -650
+        wall_dn_rect.y = 600
         score = font.render("Score:" + str(score_num),False, font_color)
 
     screen.blit(background, (0,0))    
