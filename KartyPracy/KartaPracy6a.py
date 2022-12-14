@@ -101,7 +101,40 @@ if X >= Y:
 print(f"Liczba mieszana to: {liczba} i {X}/{Y}")
 
 
-#TODO zad 8 i 9
+
+print("ZADANIE 8")
+T = []
+for i in range(2,100000):
+    
+    spr1 = 0
+    for j in range(1,i):
+        if i % j == 0:
+            spr1 += j
+    T.append(spr1)
+    spr2 = 0
+    for k in range(1,spr1):
+        if spr1 % k == 0:
+            spr2 += k
+
+    if i == spr2 and spr1 != spr2 and spr2 not in T:
+        print(f"({spr1},{spr2})")
+
+
+#PRE 9
+def Pierwsza(x):
+    for i in range(2,x):
+        if x % i == 0:
+            return False
+    return True
+
+
+print("ZADANIE 9")
+for i in range(1,100):
+    for j in range(2,i):
+        if i % j == 0:
+            if Pierwsza(j) and Pierwsza(i//j):
+                print(i)
+                break
 
 
 print("ZADANIE 10")
