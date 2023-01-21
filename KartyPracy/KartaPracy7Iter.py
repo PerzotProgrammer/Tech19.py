@@ -96,4 +96,52 @@ for i in range(len(T)):
         iloscNP += 1
 sredniaNP /= iloscNP
 sredniaNP = round(sredniaNP,1)
+
 print(f"Średnia elementów pod nieparzystymi indeksami to: {sredniaNP} (dokładność do 1 miejsca)")
+
+# ZAD 12 i 14
+TniePow = []
+ileUsunac = 0
+for i in range(len(T)):
+    temp = T[i]
+    licz = 0
+    for j in range(len(T)):
+        if temp == T[j]:
+            licz += 1
+            if licz >= 2:
+                ileUsunac += 1
+                break
+    else:
+        TniePow.append(temp)
+
+print(f"Nie powtarzające się elementy to: {TniePow}")
+
+# ZAD 13
+notInT = []
+for i in range(10,100):
+    if i not in T:
+        notInT.append(i)
+print(f"Tablica nie posiada: {notInT}")
+
+# ZAD 14 wypisz
+print(f"Aby zostały wartości unikalne należy usunąć {ileUsunac} liczb")
+
+# ZAD 15
+najCiag = 0
+Ciagi = [0] * len(T)
+indeks = 0
+flaga = 0
+for i in range(len(T)):
+    if T[i] >= T[i-1]:
+        Ciagi[indeks] += 1
+    else:
+        flaga = 1
+    if flaga == 1:
+        indeks += 1
+        flaga = 0
+
+for i in range(len(Ciagi)):
+    if Ciagi[i] > najCiag:
+        najCiag = Ciagi[i]
+
+print(f"Najwiękrzy niemalejący ciąg składa się z {najCiag} liczb")
