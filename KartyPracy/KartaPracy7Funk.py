@@ -17,19 +17,13 @@ print(f"Minimalna wartość to: {min(T)}")
 print(f"Rozpiętość tablicy to: {len(T)}")
 
 # ZAD 4
-Tsorted = sorted(T)
-Tsorted.reverse()
-for i in range(len(Tsorted)):
-    if max(Tsorted) > Tsorted[i]:
-        print(f"Vice-maksymalna wartość to: {Tsorted[i]}")
-        break
+Tset = list(set(T))
+Tset.sort()
+print(f"Vice-minimalna wartość to: {Tset[len(Tset) - 2]}")
 
 # ZAD 5
-Tsorted.reverse()
-for i in range(len(Tsorted)):
-    if min(Tsorted) < Tsorted[i]:
-        print(f"Vice-minimalna wartość to: {Tsorted[i]}")
-        break
+Tset.reverse()
+print(f"Vice-minimalna wartość to: {Tset[len(Tset) - 2]}")
 
 # ZAD 6
 print(f"Ilość maksów to: {T.count(max(T))}")
