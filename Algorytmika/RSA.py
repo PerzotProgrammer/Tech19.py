@@ -28,14 +28,14 @@ for i in range(2, N):
 # C = (x ** E) % N (Szyfrogram)
 # T = (C ** D) % N (Na tekst jawny)
 
-msg = input("")
+msg = input("Podaj słowo do szyfracji: ")
 
 szyfr = ""
 for i in msg:
     szyfr += chr((ord(i) ** E) % N)
-print(szyfr)
+print("Twój szyfr:", szyfr)
 
 jawny = ""
 for i in szyfr:
     jawny += chr((ord(i) **D ) % N)
-print(jawny)
+print("Twoja deszyfracja:", jawny)
