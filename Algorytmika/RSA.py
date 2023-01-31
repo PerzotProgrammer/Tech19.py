@@ -1,4 +1,4 @@
-# SZYFROWANIE RSA - Asymetryczne
+#!!! SZYFROWANIE RSA - Asymetryczne
 
 from math import gcd as NWD # Greatest Common Dividor - czyli NWD
 

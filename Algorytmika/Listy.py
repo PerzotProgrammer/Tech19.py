@@ -1,4 +1,3 @@
-#!!! do nauczenia
 # FOREACH
 # foreach x in L == for x in range(len(L))
 
