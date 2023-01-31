@@ -1,5 +1,5 @@
 # Moja autorska wersja kompilatora pod Pythona
-# Wykorzystuje ona wbudowane biblioteki (przynajmniej na Windowsie)
+# Wykorzystuje ona wbudowane biblioteki (Działa na Windowsie i Linuxach!)
 
 
 import py_compile, os
