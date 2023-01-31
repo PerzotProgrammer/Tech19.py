@@ -12,7 +12,6 @@ if os.path.isfile(path):
     if path.endswith(".py"):
         py_compile.compile(path)
         print("Znaleziono plik!\nSprawdź folder __pycache__ (plik powinien nazywać się nazwaPliku-cpython-wersja.pyc)")
-        input("naciśnij klawisz aby zamknąć program...").split()
 
     else:
         print("Niepoprawnie rozszerzenie pliku!\nUpewnij się, że plik kończy się na .py")
@@ -20,8 +19,8 @@ if os.path.isfile(path):
 
 elif os.path.isdir(path):
     print("Podano folder a nie plik!\nPliki w folderze:\n",os.listdir(path))
-    input("naciśnij klawisz aby zamknąć program...").split()
 
 else:
     print("Nie można znaleść scieżki\nUpewnij się, że scieżka jest relatywna względęm położenia tego pliku!")
-    input("naciśnij klawisz aby zamknąć program...").split()
+
+input("naciśnij klawisz aby zamknąć program...").split()
