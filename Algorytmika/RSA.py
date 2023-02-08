@@ -3,8 +3,8 @@
 from math import gcd as NWD # Greatest Common Dividor - czyli NWD
 
 # Dobór dwóch liczb pierwszych
-pie1 = 97
-pie2 = 101
+pie1 = 11
+pie2 = 13
 
 # Trzowrzenie funkcji F = (pie1 - 1) * (pie2 - 1) i znalezienie N = pie1 * pie2
 F = (pie1 - 1) * (pie2 - 1)
@@ -17,7 +17,7 @@ for i in range(2, F):
         break
 # print(E, N)
 
-# Znalezienie klucza prywatnegi D: D * E mod F = 1 (odwrotność modulo)
+# Znalezienie klucza prywatnego D: D * E mod F = 1 (odwrotność modulo)
 for i in range(2, N):
     if (i * E) % F == 1:
         D = i
@@ -37,5 +37,5 @@ print("Twój szyfr:", szyfr)
 
 jawny = ""
 for i in szyfr:
-    jawny += chr((ord(i) **D ) % N)
+    jawny += chr((ord(i) ** D) % N)
 print("Twoja deszyfracja:", jawny)
