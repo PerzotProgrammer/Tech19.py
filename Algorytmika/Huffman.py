@@ -1,4 +1,4 @@
-#!!! SZYFROWANIE HUFFMANA - Kompresja danych
+# !!! SZYFROWANIE HUFFMANA - Kompresja danych
 
 # DZIAŁANIE
 # wejście = "ABCCCDDDDDEFGGGHHIJJ"
