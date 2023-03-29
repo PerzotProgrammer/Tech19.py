@@ -76,3 +76,48 @@ for i in range(len(napis) - 1):
         ileA += 1
 
 print(ileA)
+
+print()
+
+# zad6
+maxNap = 0
+for i in napis:
+    spr = napis.count(i)
+    if spr > maxNap:
+        maxNap = spr
+        literka = i
+print(f"Dominandą jest {literka}, występuje ona {maxNap} razy!")
+
+# zad7 
+
+# Tu coś było ale nie działało
+
+# zad8
+ileLA = 0
+for i in range(len(napis)):
+    if napis[i] == "l" and napis[i + 1] == "a":
+        ileLA += 1
+
+print(f"LA występuje {ileLA} razy!")
+
+print()
+
+# zad9
+
+# Nie ma drogi
+
+# zad 10
+listaLiter = napis.upper()
+listaLiter = list(listaLiter)
+listaLiter.sort()
+
+ASCII = []
+for i in range(65,91):
+    ASCII.append(chr(i))
+
+for i in ASCII:
+    if i not in listaLiter:
+        print(i,end=", ")
+
+print()
+print()
