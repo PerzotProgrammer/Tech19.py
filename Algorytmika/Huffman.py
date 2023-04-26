@@ -1,5 +1,3 @@
-# !!! SZYFROWANIE HUFFMANA - Kompresja danych
-
 # DZIAŁANIE
 # wejście = "ABCCCDDDDDEFGGGHHIJJ"
 # wyjście = "AB3C5DEF3G2HI2J"
