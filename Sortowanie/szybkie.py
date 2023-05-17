@@ -1,26 +1,10 @@
 from random import randint
 
-T = [randint(1, 1000) for i in range(10000)]
+# QuickSort trzema różnymi sposobami
 
-
-# JAKIŚ SPOSÓB Z INTERNETU
-
-def QuickSort(T):
-    if len(T) <= 1:
-        return T
-    else:
-        pivot = T[0]
-        Lewy = [x for x in T[1:] if x < pivot]
-        Prawy = [x for x in T[1:] if x >= pivot]
-    return QuickSort(Lewy) + [pivot] + QuickSort(Prawy)
-
-T = QuickSort(T)
-print(T)
-
+# 1. HOARE
 
 T = [randint(1, 1000) for i in range(10000)]
-
-# HOARE
 
 def QuickSortHoare(T, lewy = 0, prawy = len(T) - 1):
     i = lewy
@@ -44,7 +28,9 @@ def QuickSortHoare(T, lewy = 0, prawy = len(T) - 1):
 QuickSortHoare(T)
 print(T)
 
-# LOMUTO
+# 2. LOMUTO
+
+T = [randint(1, 1000) for i in range(10000)]
 
 def QuickSortLomuto(T, lewy = 0, prawy = len(T) - 1):
     pivot = T[prawy]
@@ -60,4 +46,20 @@ def QuickSortLomuto(T, lewy = 0, prawy = len(T) - 1):
         QuickSortLomuto(T, i + 1, prawy)
 
 QuickSortLomuto(T)
+print(T)
+
+# 3. JAKIŚ SPOSÓB Z INTERNETU (prawdopodobnie pythonowska modyfikacja lomuto)
+
+T = [randint(1, 1000) for i in range(10000)]
+
+def QuickSortInternet(T):
+    if len(T) <= 1:
+        return T
+    else:
+        pivot = T[0]
+        Lewy = [x for x in T[1:] if x < pivot]
+        Prawy = [x for x in T[1:] if x >= pivot]
+    return QuickSortInternet(Lewy) + [pivot] + QuickSortInternet(Prawy)
+
+T = QuickSortInternet(T)
 print(T)
