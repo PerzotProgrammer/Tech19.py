@@ -3,12 +3,13 @@ from random import randint
 T = [randint(1, 1000) for i in range(10000)]
 
 
+# JAKIŚ SPOSÓB Z INTERNETU
+
 def QuickSort(T):
     if len(T) <= 1:
         return T
     else:
         pivot = T[0]
-        # Chciałem w forach ale nie działało
         Lewy = [x for x in T[1:] if x < pivot]
         Prawy = [x for x in T[1:] if x >= pivot]
     return QuickSort(Lewy) + [pivot] + QuickSort(Prawy)
@@ -16,3 +17,29 @@ def QuickSort(T):
 T = QuickSort(T)
 print(T)
 
+
+T = [randint(1, 1000) for i in range(10000)]
+
+# HOARE
+
+def QuickSortHoare(T, lewy = 0, prawy = len(T) - 1):
+    i = lewy
+    j = prawy
+    pivot = T[(lewy + prawy) // 2]
+
+    while i <= j:
+        while T[i] < pivot:
+            i += 1
+        while T[j] > pivot:
+            j -= 1
+        if i <= j:
+            T[i], T[j] = T[j], T[i]
+            i += 1
+            j -= 1
+    if lewy < j:
+        QuickSortHoare(T, lewy, j)
+    if prawy > i:
+        QuickSortHoare(T, i, prawy)
+
+QuickSortHoare(T)
+print(T)
