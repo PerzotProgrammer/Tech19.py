@@ -43,3 +43,21 @@ def QuickSortHoare(T, lewy = 0, prawy = len(T) - 1):
 
 QuickSortHoare(T)
 print(T)
+
+# LOMUTO
+
+def QuickSortLomuto(T, lewy = 0, prawy = len(T) - 1):
+    pivot = T[prawy]
+    i = lewy
+    for j in range(lewy, prawy):
+        if T[j] <= pivot:
+            T[i] , T[j] = T[j], T[i]
+            i += 1
+    T[i], T[prawy] = T[prawy], T[i]
+    if lewy < i - 1:
+        QuickSortLomuto(T, lewy, i - 1)
+    if prawy > i + 1:
+        QuickSortLomuto(T, i + 1, prawy)
+
+QuickSortLomuto(T)
+print(T)
