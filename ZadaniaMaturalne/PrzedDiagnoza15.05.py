@@ -78,8 +78,8 @@ for i in range(len(napis)):
     szyfr = szyfr + chr(65 + (ord(napis[i]) - 65 + klucz) % 26)
 print("Szyfracja:", szyfr)
 
-#zad 5
-from math import gcd, lcm
+#zad 5 (nie do końca)
+from math import lcm
 
 goraA = int(input("GoraA:"))
 dolA = int(input("DolA:"))
@@ -87,7 +87,66 @@ goraB = int(input("GoraB:"))
 dolB = int(input("DolB:"))
 
 nww = lcm(dolA, dolB)
-wynik1 = (nww // dolA) * goraA
-wynik2 = (nww // dolB) * goraB
+w1 = (nww // dolA) * goraA
+w2 = (nww // dolB) * goraB
 
-print(wynik1 + wynik2, "/", nww)
+goraW = w1 + w2
+dolW = nww
+
+print(f"{goraA}/{dolA} + {goraB}/{dolB} = {goraW}/{dolW}")
+print(f"czyli: {(w1 + w2)/dolW}")
+
+
+#zad 5
+
+def nww(a, b):
+    temp = a * b
+    while a != b :
+        if a > b :
+            a -= b
+        else :
+            b -= a
+    return temp // a
+
+print(nww(24, 36))
+
+# NAPISY
+
+#zad 1
+
+napis = input("Daj stringa: ")
+ilosc = 0
+for i in napis:
+    if i == "C" or i == "c":
+        ilosc += 1
+print(f"W napisie znajduje się {ilosc} liter c")
+
+
+#zad 2 (definicja rosnącości : a < z bo ord(a) < ord(z))
+
+def CzyRosnacy(napis : str):
+    for i in range(1,len(napis)):
+        if ord(napis[i]) >= ord(napis[i - 1]):
+            return True
+    return False
+
+
+napis = input("Daj stringa: ")
+
+if not CzyRosnacy(napis):
+    print("Napis jest nierosnący")
+else:
+    print("Napis jest rosnący")
+
+
+#zad 3
+stringi = []
+
+for i in range(3):
+    stringi.append(input("Daj stringa: "))
+
+wynik = ""
+for i in range(3):
+    if len(stringi[i]) > len(wynik):
+        wynik = stringi[i]
+print(f"Najdłuższy napis to: {wynik}")
