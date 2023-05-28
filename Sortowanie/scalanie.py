@@ -2,30 +2,40 @@ from random import randint
 
 T = [randint(1, 1000) for i in range(10000)]
 
-# TODO WORK IN PROGRESS
 
 def Scalaj(lewo, prawo):
-    L = T.copy()
+    Tkopia = T.copy()
     srodek = (lewo + prawo) // 2
     i = lewo
-    iLewy = lewo
-    iPrawy = srodek
-    while(iLewy <= srodek and iPrawy < prawo):
-        if L[iLewy] < L[iPrawy]:
-            L[i] = T[iLewy]
-            iLewy += 1
+    iLewo = lewo
+    iPrawo = srodek + 1
+
+    while iLewo <= srodek and iPrawo <= prawo:
+        if Tkopia[iLewo] < Tkopia[iPrawo]:
+            T[i] = Tkopia[iLewo]
+            iLewo += 1
         else:
-            T[i] = L[iPrawy]
-            iPrawy += 1
+            T[i] = Tkopia[iPrawo]
+            iPrawo += 1
         i += 1
+    if iLewo > srodek:
+        while iPrawo <= prawo:
+            T[i] = Tkopia[iPrawo]
+            iPrawo += 1
+            i += 1
+    else:
+        while iLewo <= srodek:
+            T[i] = Tkopia[iLewo]
+            iLewo += 1
+            i += 1
 
-
-
-def Sortuj(lewo, prawo):
+def MergeSort(lewo = 0, prawo = len(T) - 1):
     srodek = (lewo + prawo) // 2
     if lewo < srodek:
-        Sortuj(lewo, srodek)
-        if srodek + 1 < prawo: pass
+        MergeSort(lewo, srodek)
+    if srodek + 1 < prawo:
+        MergeSort(srodek + 1, prawo)
+    Scalaj(lewo, prawo)
 
-
+MergeSort()
 print(T)
