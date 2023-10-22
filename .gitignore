@@ -2,3 +2,6 @@ temp.py
 tempCodeRunnerFile.py
 Trening
 __pycache__
+.idea
+.vs
+*.user
