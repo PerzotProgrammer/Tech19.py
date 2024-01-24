@@ -14,8 +14,14 @@ def f2(a, b, n):
     return suma
 
 
-wykres1 = np.linspace(0, 30)
+def f3(x):
+    return 3 + 2 * x - np.power(x, 2)
 
-pp.plot(wykres1, f1(wykres1), color="blue")
+
+wykres = np.linspace(0, 30)
+
+pp.plot(wykres, f1(wykres), color="blue")
+pp.plot(wykres, f2(wykres, 10, 10), color="green")
+pp.plot(wykres, f3(wykres), color="red")
 
 pp.show()
