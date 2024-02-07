@@ -1,16 +1,21 @@
 import RandomGraph as rg
-from random import randint
+import Zadania as zd
 
 # rg.StumilowyLas()
 
 # n, m = map(int, input().split())
 graph = rg.MakeGraph(10, 10)
 print(graph)
-
 print()
 print()
+print(f"Suma wierzchołków: {zd.SumaWierzcholkow(graph)}")
+print(f"Suma krawędzi: {zd.SumaKrawedzi(graph)}")
+print(f"Max krawędzi: {zd.MaxKrawedzi(graph)}")
+print()
+print("DFS")
 
-M = [[randint(0, 9) for i in range(10)] for j in range(10)]
+dfs = zd.DFS(graph, 0)
 
-for i in M:
-    print(i)
+for node in dfs:
+    print(f"{node} -> ", end="")
+print("None")
