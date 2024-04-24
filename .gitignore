@@ -1,7 +1,16 @@
-temp.py
+# Pliki
+*.temp.*
+*.test.*
+*.pyc
+*.exe
 tempCodeRunnerFile.py
-Trening
+
+
+# Foldery
 __pycache__
-.idea
 .vs
-*.user
+.vscode
+.idea
+Trening
+Test
+Gitignore
