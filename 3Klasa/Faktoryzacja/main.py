@@ -1,8 +1,8 @@
-from factorization import Exercises
-import fileOperations as fo
+from factorization import Exercises as fcEx
+from fileOperations import Exercises as foEx
 
 if __name__ == "__main__":
     print("ZADANIA FAKTORYZACJA")
-    Exercises()
+    fcEx()
     print("ZADANIA OPERACJE PLIKOWE")
-    fo.Ex1()
+    foEx()
