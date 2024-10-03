@@ -1,14 +1,20 @@
-def BinarySearch(numbers: list, target: int) -> int:
+def BinarySearch(numbers: list, target: int, numOfCompMode=False) -> int:
     low = 0
     high = len(numbers) - 1
+    numOfComps = 0
     while low <= high:
         mid = (low + high) // 2
+        numOfComps += 1
         if numbers[mid] == target:
+            if numOfCompMode:
+                return numOfComps
             return mid
         if numbers[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
+    if numOfCompMode:
+        return -numOfComps
     return -1
 
 
@@ -28,7 +34,7 @@ def BinarySearchRecursive(numbers: list, target: int, low=-1, high=-1) -> int:
 
 
 def IsSorted(numbers: list) -> bool:
-    for i in range(len(numbers)):
-        if numbers[i] > numbers[i + 1]:
+    for i in range(1, len(numbers)):
+        if numbers[i - 1] > numbers[i]:
             return False
     return True

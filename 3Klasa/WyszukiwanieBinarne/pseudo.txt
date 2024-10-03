@@ -1,0 +1,12 @@
+Funkcja CzyNależyDoZbioru(a, T, n) -> boolean
+    lewo -> 0
+    prawo -> n - 1
+    dopóki lewo <= prawo wykonuj:
+        środek -> (lewo + prawo) div 2
+        jeżeli T[środek] = a to:
+            zwróć Prawda i zakończ
+        jeżeli T[środek] < a to:
+            lewo -> środek + 1
+        w przeciwnym wypadku:
+            prawo -> środek - 1
+    zwróć Fałsz i zakończ
