@@ -63,6 +63,33 @@ def f():
         print(f"Najdłuższe słowo: {maxLenWord}")
 
 
+def g():
+    with open('slowa.txt', 'r') as file:
+        lines = file.read().split("\n")
+        lines.pop()
+        for line in lines:
+            if len(line) == 6:
+                print(line)
+        file.close()
+
+
+def h():
+    with open('slowa.txt', 'r') as file:
+        lines = file.read().split("\n")
+        lines.pop()
+        for line in lines:
+            if line.count("O") > 0:
+                print(f"{line} - {line.count("O")}")
+        file.close()
+
+
+def i():
+    with open('slowa.txt', 'r') as file:
+        lines = file.readlines()
+        linesStr = "".join(lines)
+        print(f"Ilość liter A: {linesStr.count("A")}")
+
+
 def callAll():
     a()
     b()
@@ -70,6 +97,9 @@ def callAll():
     d()
     e()
     f()
+    g()
+    h()
+    i()
 
 
 if __name__ == "__main__":
