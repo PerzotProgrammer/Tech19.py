@@ -1,6 +1,7 @@
 from random import randint
 from zad5 import callAll as zad5
 from zad6 import callAll as zad6
+from zad7 import callAll as zad7
 
 
 def zad1():
@@ -52,3 +53,4 @@ if __name__ == "__main__":
     zad4()
     zad5()
     zad6()
+    zad7()
