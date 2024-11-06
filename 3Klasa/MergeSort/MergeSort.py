@@ -1,16 +1,18 @@
-def Sort(T: [int], left=0, right=None) -> [int]:
-    if right is None:
-        right = len(T) - 1
+def MergeSort(T: [int]) -> [int]:
     Temp = [0 for _ in range(len(T))]
+    return Sort(T, Temp, 0, len(T) - 1)
+
+
+def Sort(T: [int], Temp: [int], left: int, right: int) -> [int]:
     if left < right:
         middle = (left + right) // 2
-        Sort(T, left, middle)
-        Sort(T, middle + 1, right)
-        Merge(T, left, middle, right, Temp)
+        Sort(T, Temp, left, middle)
+        Sort(T, Temp, middle + 1, right)
+        Merge(T, Temp, left, middle, right)
     return T
 
 
-def Merge(T: [int], left: int, middle: int, right: int, Temp: [int]) -> None:
+def Merge(T: [int], Temp: [int], left: int, middle: int, right: int) -> None:
     i = left
     j = middle + 1
     k = left
