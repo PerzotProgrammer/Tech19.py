@@ -19,7 +19,20 @@ def zad3():
     print(f"Twój Horner Rekurencyjny: {Horner.HornerRecursive(x, a)}")
 
 
+def zad6():
+    a = list(map(int, input("Podaj liczbę binarną: ")))
+    print(f"Twoja liczba binarna w formie decymalnej: {Horner.Horner(2, a)}")
+
+
+def zad7():
+    a = list(map(int, input("Podaj liczbę w wybranym systemie: ")))
+    x = int(input("Podaj podstawę systemu: "))
+    print(f"Twoja liczba systemu o podstawie {x} w formie decymalnej: {Horner.Horner(x, a)}")
+
+
 if __name__ == "__main__":
     zad1()
     zad2()
     zad3()
+    zad6()
+    zad7()
