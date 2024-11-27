@@ -1,4 +1,4 @@
-def PrintAllSubarrayEx1(T: list[int]) -> None:
+def PrintAllSubarraysEx1(T: list[int]) -> None:
     i = 0
     size = 1
     j = size
@@ -12,7 +12,15 @@ def PrintAllSubarrayEx1(T: list[int]) -> None:
         j = size
 
 
-def PrintAllSubarrayEx2(T: list[int]) -> None:
+def PrintAllSubarraysEx2(T: list[int]) -> None:
     for i in range(len(T)):
         for j in range(i + 1, len(T) + 1):
             print(T[i:j])
+
+
+def GetAllSubarrays(T: list[int]) -> list[list[int]]:
+    Subarrays = []
+    for i in range(len(T)):
+        for j in range(i + 1, len(T) + 1):
+            Subarrays.append(T[i:j])
+    return Subarrays
