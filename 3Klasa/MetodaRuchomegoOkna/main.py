@@ -49,10 +49,34 @@ def zad6():
     print("Ciąg jest malejący")
 
 
+def mat1():
+    with open("pi.txt") as file:
+        pi = file.read().replace("\n", "")
+        sumOfNums = 0
+        for i in range(len(pi) - 1):
+            num = int(pi[i] + pi[i + 1])
+            if num > 90:
+                sumOfNums += 1
+    print(sumOfNums)
+
+
+def mat2():
+    freq = [0 for _ in range(100)]
+    with open("pi.txt") as file:
+        pi = file.read().replace("\n", "")
+        for i in range(len(pi) - 1):
+            num = int(pi[i] + pi[i + 1])
+            freq[num] += 1
+        print(f"{freq.index(min(freq))} {min(freq)}")
+        print(f"{freq.index(max(freq))} {max(freq)}")
+
+
 if __name__ == '__main__':
-    # zad1()
-    # zad2()
-    # zad3()
-    # zad4()
+    zad1()
+    zad2()
+    zad3()
+    zad4()
     zad5()
     zad6()
+    mat1()
+    mat2()
