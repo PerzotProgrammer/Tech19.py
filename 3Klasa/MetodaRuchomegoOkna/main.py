@@ -71,12 +71,39 @@ def mat2():
         print(f"{freq.index(max(freq))} {max(freq)}")
 
 
+def mat3():
+    with open("pi.txt") as file:
+        pi = file.read().replace("\n", "")
+        low = 0
+        high = 6
+        count = 0
+        while high < len(pi):
+            flagUp = True
+            flagDown = False
+            for i in range(low + 1, high):
+                if flagUp and pi[i - 1] <= pi[i]:
+                    flagDown = True
+                elif flagDown and pi[i - 1] >= pi[i]:
+                    flagDown = True
+                    flagUp = False
+                else:
+                    flagUp = False
+                    flagDown = False
+                    break
+            if not flagUp and flagDown:
+                count += 1
+            low += 1
+            high += 1
+        print(count)
+
+
 if __name__ == '__main__':
-    zad1()
-    zad2()
-    zad3()
-    zad4()
-    zad5()
-    zad6()
+    # zad1()
+    # zad2()
+    # zad3()
+    # zad4()
+    # zad5()
+    # zad6()
     mat1()
     mat2()
+    mat3()
