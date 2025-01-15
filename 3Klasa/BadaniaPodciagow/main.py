@@ -23,7 +23,22 @@ def zad3():
     print(max([sum(subarray) for subarray in Subarrays]))
 
 
+def zad4():
+    with open("ciag.txt", "r") as file:
+        T = list(map(int, file.read().split()))
+        maxSum = 0
+        curSum = 0
+    for i in T:
+        curSum += i
+        if i < 0:
+            curSum = 0
+        elif curSum > maxSum:
+            maxSum = curSum
+    print(maxSum)
+
+
 if __name__ == "__main__":
     zad1()
     zad2()
     zad3()
+    zad4()
