@@ -37,8 +37,26 @@ def zad4():
     print(maxSum)
 
 
+def zad5():
+    with open("ciag.txt", "r") as file:
+        T = list(map(int, file.read().split()))
+        start = 0
+        i = 0
+        maxSum = 0
+        curSum = 0
+    for i in range(len(T)):
+        curSum += T[i]
+        if T[i] < 0:
+            curSum = 0
+            start = i + 1
+        elif curSum > maxSum:
+            maxSum = curSum
+    print(T[start:i + 1])
+
+
 if __name__ == "__main__":
     zad1()
     zad2()
     zad3()
     zad4()
+    zad5()
