@@ -9,7 +9,4 @@ with open("./dane2_4.txt", "r") as file:
                 balance -= 1
                 if balance < 0:
                     break
-        if balance == 0:
-            print("Tak")
-        else:
-            print("Nie")
+        print("Tak" if balance == 0 else "Nie")
